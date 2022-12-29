@@ -13,15 +13,6 @@ import org.springframework.context.annotation.Configuration;
 @RefreshScope
 @Configuration
 public class ConfigData {
-    @Value("${configA}")
-    private String configA;
-
-    @Value("${configB}")
-    private String configB;
-
-    @Value("my name is niraj tailor")
-    private String message;
-
     @Value("${spring.application.name}")
     private String name;
 }

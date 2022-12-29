@@ -1,0 +1,31 @@
+server.port: 8080
+
+management.endpoints.web.exposure.include: '*'
+  
+  #logging.level.org.springframework.jdbc.core: TRACE
+  #logging.level.org.springframework: INFO
+
+  #spring.cloud.config.uri=http://localhost:8888
+
+spring:
+  application.name: spring-config-jdbc-client
+  profiles:
+    active: jdbc, dev
+  config:
+    import: optional:configserver:http://localhost:8888
+  cloud:
+    config:
+      import-check.enabled: false
+      label: 1.0
+      profile: dev
+
+app:
+  config:
+    configA: ConfigA - static
+    configB: ConfigB - static
+    configC: ConfigC - static
+    configD: ConfigD - static
+
+scheduler:
+  interval: 10000
+  enabled: true

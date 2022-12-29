@@ -2,6 +2,7 @@ package in.retailio.msclientservice.controller;
 
 //import org.apache.http.HttpHeaders;
 import in.retailio.msclientservice.config.ConfigData;
+import in.retailio.msclientservice.config.Configurations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,9 +18,12 @@ public class ApiResource {
     @Autowired
     private ConfigData configData;
 
+    @Autowired
+    private Configurations configurations;
+
     @RequestMapping("/config")
     public List<String> getConfig(){
-        return Arrays.asList(configData.getConfigA(), configData.getConfigB());
+        return Arrays.asList(configurations.getConfigA(), configurations.getConfigB());
     }
 
     @RequestMapping("/name")
